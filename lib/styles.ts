@@ -146,6 +146,13 @@ export const TAPER_TYPES: TaperType[] = [
     boldness: 4,
     href: '/drop-taper-fade',
     illustration: 'drop',
+    photo: {
+      src: '/photos/drop-taper-fade-side.webp',
+      width: 1200,
+      height: 1097,
+      alt: 'Side profile of a drop taper fade on wavy dark hair, the taper line curving down behind the ear toward the nape',
+      caption: 'Drop taper fade, side view',
+    },
   },
   {
     id: 'burst',
