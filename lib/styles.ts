@@ -42,6 +42,9 @@ export interface StyleSection {
 /** A spot reserved for your own licensed photo. Set `src` (in /public) to show it. */
 export interface PhotoSlot {
   src?: string;
+  /** Intrinsic size of the photo; prevents layout shift. Defaults to 800×1000. */
+  width?: number;
+  height?: number;
   alt: string;
   caption: string;
 }
@@ -239,7 +242,13 @@ export const STYLE_PAGES: StylePage[] = [
     pros: ['Professional and versatile', 'Grows out gracefully', 'Minimal scalp exposure', 'Suits most face shapes'],
     cons: ['Less contrast than mid or high tapers', 'Can look plain with a very short top'],
     photos: [
-      { alt: 'Side view of a low taper fade with a textured top', caption: 'Low taper fade, side view' },
+      {
+        src: '/photos/low-taper-fade-side.webp',
+        width: 1200,
+        height: 1097,
+        alt: 'Side profile of a low taper fade on wavy dark hair, short around the ear and neckline with a textured top',
+        caption: 'Low taper fade, side view',
+      },
       { alt: 'Back view of a low taper fade showing a tapered neckline', caption: 'Low taper fade, back view' },
     ],
     faqs: [
@@ -338,7 +347,13 @@ export const STYLE_PAGES: StylePage[] = [
     pros: ['Works on almost every face and hair type', 'Noticeable but not extreme', 'Easy to style', 'Good balance of sharpness and upkeep'],
     cons: ['Needs a refresh more often than a low taper', 'Regrowth line shows after 3–4 weeks'],
     photos: [
-      { alt: 'Side view of a mid taper fade with a short textured top', caption: 'Mid taper fade, side view' },
+      {
+        src: '/photos/mid-taper-fade-side.webp',
+        width: 1200,
+        height: 1117,
+        alt: 'Side profile of a mid taper fade on wavy dark hair, tapered from the temple down behind the ear to the nape',
+        caption: 'Mid taper fade, side view',
+      },
       { alt: 'Mid taper fade on curly hair', caption: 'Mid taper fade with curls' },
     ],
     faqs: [

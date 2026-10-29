@@ -14,7 +14,14 @@ export function PhotoPlaceholder({ slot }: { slot: PhotoSlot }) {
   if (slot.src) {
     return (
       <figure className="overflow-hidden rounded-xl border border-border bg-surface">
-        <Image src={slot.src} alt={slot.alt} width={800} height={1000} className="h-auto w-full object-cover" sizes="(min-width: 768px) 50vw, 100vw" />
+        <Image
+          src={slot.src}
+          alt={slot.alt}
+          width={slot.width ?? 800}
+          height={slot.height ?? 1000}
+          className="h-auto w-full object-cover"
+          sizes="(min-width: 1024px) 300px, 100vw"
+        />
         <figcaption className="px-4 py-2 text-sm text-muted">{slot.caption}</figcaption>
       </figure>
     );
