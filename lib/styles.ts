@@ -68,6 +68,8 @@ export interface StylePage {
   barberScript: string;
   pros: string[];
   cons: string[];
+  /** Main photo at the top of the page; overrides the taper's photo. */
+  heroPhoto?: PhotoSlot;
   photos: PhotoSlot[];
   faqs: Faq[];
   related: string[];
@@ -705,6 +707,13 @@ export const STYLE_PAGES: StylePage[] = [
     taperId: 'mid',
     illustration: 'mid',
     kind: 'hair-type',
+    heroPhoto: {
+      src: '/photos/taper-fade-curly-hair-side.webp',
+      width: 1200,
+      height: 1097,
+      alt: 'Side profile of a taper fade on curly dark hair, blended short around the ear and neckline with defined curls on top',
+      caption: 'Taper fade on curly hair, side view',
+    },
     seo: {
       title: 'Taper Fade for Curly Hair: Best Types, Styles & Care',
       description:
@@ -888,16 +897,16 @@ export function getStylePage(slug: string): StylePage | undefined {
   return STYLE_PAGES.find((p) => p.slug === slug);
 }
 
-/** Pages for a "Related tapers" block; falls back to other height pages. */
 /**
- * Photo for a style page's main visual. Hair-type pages (curly, straight) only get
- * one once you add a photo showing that hair type, so a wavy-hair photo never
- * stands in for curls.
+ * Photo for a style page's main visual: the page's own `heroPhoto`, or for height
+ * pages the taper's photo. Hair-type pages (curly, straight) never borrow a taper
+ * photo, so a wavy-hair photo never stands in for curls.
  */
 export function getPagePhoto(page: StylePage): PhotoSlot | undefined {
-  return page.kind === 'height' ? getTaper(page.taperId)?.photo : undefined;
+  return page.heroPhoto ?? (page.kind === 'height' ? getTaper(page.taperId)?.photo : undefined);
 }
 
+/** Pages for a "Related tapers" block; falls back to other height pages. */
 export function getRelated(slugs: string[], exclude: string): StylePage[] {
   const picked = slugs.map(getStylePage).filter((p): p is StylePage => !!p && p.slug !== exclude);
   return picked.length ? picked : STYLE_PAGES.filter((p) => p.slug !== exclude).slice(0, 4);
