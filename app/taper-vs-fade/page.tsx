@@ -6,9 +6,18 @@ import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { Faq } from '@/components/seo/Faq';
 import { RelatedTapers } from '@/components/style/RelatedTapers';
 import { buildMetadata, type Faq as FaqItem } from '@/lib/seo';
-import { getRelated, getTaper } from '@/lib/styles';
+import { getRelated, getTaper, type PhotoSlot } from '@/lib/styles';
 
 const PATH = '/taper-vs-fade';
+
+/** A full fade, not a taper, so it lives here rather than on a TaperType. */
+const FADE_PHOTO: PhotoSlot = {
+  src: '/photos/skin-fade-side.webp',
+  width: 1200,
+  height: 1097,
+  alt: 'Side profile of a skin fade on wavy dark hair, with the sides and back blended down to bare skin above the ear',
+  caption: 'Skin fade, side view',
+};
 
 export const metadata: Metadata = buildMetadata({
   title: 'Taper vs Fade: The Real Difference (With Diagrams)',
@@ -54,8 +63,7 @@ export default function TaperVsFadePage() {
           </figcaption>
         </figure>
         <figure className="rounded-2xl border border-border bg-surface p-5 text-center">
-          {/* Add a fade photo as a TaperType `photo` (or pass `photo` here) to replace this drawing. */}
-          <TaperVisual variant="skin" px={192} uid="-vs" className="mx-auto h-48 w-48" />
+          <TaperVisual variant="skin" photo={FADE_PHOTO} px={192} uid="-vs" className="mx-auto h-48 w-48" />
           <figcaption className="mt-2">
             <span className="block font-bold">Fade</span>
             <span className="text-sm text-muted">A larger area blended down to skin</span>
