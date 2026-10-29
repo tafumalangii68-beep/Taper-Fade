@@ -165,6 +165,13 @@ export const TAPER_TYPES: TaperType[] = [
     boldness: 4,
     href: '/burst-taper-fade',
     illustration: 'burst',
+    photo: {
+      src: '/photos/burst-taper-fade-side.webp',
+      width: 1200,
+      height: 1200,
+      alt: 'Side profile of a burst taper fade on textured dark hair, faded in a curve around the ear with length left at the nape',
+      caption: 'Burst taper fade, side view',
+    },
   },
   {
     id: 'temple',
