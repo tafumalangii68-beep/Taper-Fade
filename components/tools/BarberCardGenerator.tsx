@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { HeadProfile } from '@/components/illustrations/HeadProfile';
+import { TaperVisual } from '@/components/illustrations/TaperVisual';
 import { CARD_GUARDS, guardText } from '@/lib/guards';
-import { TAPER_TYPES, getTaper, type TaperId } from '@/lib/styles';
+import { TAPER_TYPES, getTaper, type IllustrationVariant, type PhotoSlot, type TaperId } from '@/lib/styles';
 import { SITE_NAME } from '@/lib/site';
 
 type Height = 'low' | 'mid' | 'high';
@@ -61,6 +61,20 @@ const CARD_VARS = {
   '--ill-hair': '#141210',
   '--ill-line': '#e8a160',
 } as CSSProperties;
+
+/** Mid-height photo with the start line marked; made for the dark card. */
+const MID_CARD_PHOTO: PhotoSlot = {
+  src: '/photos/barber-card-mid-taper.webp',
+  width: 1198,
+  height: 1198,
+  alt: 'Mid taper fade on textured dark hair, with a dashed line at the top of the ear marking where the taper starts',
+  caption: 'Mid taper fade',
+};
+
+/** A photo that matches what the card says, so the barber never sees a conflicting height. */
+function cardPhoto(variant: IllustrationVariant): PhotoSlot | undefined {
+  return variant === 'mid' ? MID_CARD_PHOTO : TAPER_TYPES.find((t) => t.illustration === variant)?.photo;
+}
 
 function toText(s: CardState): string {
   const taper = getTaper(s.taper)!;
@@ -270,7 +284,7 @@ export function BarberCardGenerator() {
           </div>
           <div className="p-5">
             <div className="flex items-center gap-4">
-              <HeadProfile variant={illustration} uid="-card" className="h-28 w-28 shrink-0 rounded-xl bg-[#2a2928]" />
+              <TaperVisual variant={illustration} photo={cardPhoto(illustration)} px={224} uid="-card" className="h-28 w-28 shrink-0 rounded-xl bg-[#2a2928]" />
               <div>
                 <p className="text-xs uppercase tracking-wider text-[#b5aea4]">The cut</p>
                 <p className="font-display text-2xl font-semibold leading-tight">{taper.name}</p>
