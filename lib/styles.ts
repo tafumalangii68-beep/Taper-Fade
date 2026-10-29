@@ -203,6 +203,13 @@ export const TAPER_TYPES: TaperType[] = [
     boldness: 5,
     href: '/#taper-fade-types',
     illustration: 'skin',
+    photo: {
+      src: '/photos/skin-taper-side.webp',
+      width: 1200,
+      height: 1108,
+      alt: 'Side profile of a skin taper on wavy dark hair, taken down to bare skin around the ear and neckline',
+      caption: 'Skin (bald) taper, side view',
+    },
   },
 ];
 
