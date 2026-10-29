@@ -35,7 +35,7 @@ export function Footer() {
 function FooterCol({ title, links }: { title: string; links: { href: string; label: string }[] }) {
   return (
     <nav aria-label={title}>
-      <p className="text-sm font-semibold uppercase tracking-wider text-muted">{title}</p>
+      <p className="text-sm font-semibold text-fg">{title}</p>
       <ul className="mt-3 space-y-2">
         {links.map((l) => (
           <li key={l.href}>

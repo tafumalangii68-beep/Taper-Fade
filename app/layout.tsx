@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Oswald } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
-const oswald = Oswald({ subsets: ['latin'], display: 'swap', variable: '--font-oswald', weight: ['500', '600'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,8 +18,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f7f4ef' },
-    { media: '(prefers-color-scheme: dark)', color: '#161616' },
+    { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f0f0f' },
   ],
 };
 
@@ -29,7 +28,7 @@ const themeScript = `(function(){try{var t=localStorage.getItem('theme');var d=t
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${oswald.variable}`} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

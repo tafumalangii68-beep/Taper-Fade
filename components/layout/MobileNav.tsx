@@ -38,7 +38,7 @@ export function MobileNav({ links, styleLinks }: { links: readonly NavLink[]; st
       </button>
 
       {open && (
-        <nav id="mobile-menu" aria-label="Mobile" className="absolute inset-x-0 top-full border-b border-border bg-bg px-4 pb-6 pt-2 shadow-lg">
+        <nav id="mobile-menu" aria-label="Mobile" className="absolute inset-x-0 top-full border-b border-border bg-bg px-4 pb-6 pt-2">
           <ul className="space-y-1">
             {links.map((l) => (
               <li key={l.href}>
@@ -48,7 +48,7 @@ export function MobileNav({ links, styleLinks }: { links: readonly NavLink[]; st
               </li>
             ))}
           </ul>
-          <p className="mt-4 px-3 text-xs font-semibold uppercase tracking-wider text-muted">Taper styles</p>
+          <p className="mt-4 px-3 text-xs font-medium text-muted">Taper styles</p>
           <ul className="mt-1 grid grid-cols-2 gap-1">
             {styleLinks.map((l) => (
               <li key={l.href}>

@@ -20,7 +20,7 @@ export function StylePageTemplate({ page }: { page: StylePage }) {
       {/* Hero */}
       <header className="mt-6 grid items-center gap-8 md:grid-cols-[1fr_280px]">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent">{page.kind === 'height' ? 'Taper height guide' : 'Taper by hair type'}</p>
+          <p className="text-sm font-medium text-muted">{page.kind === 'height' ? 'Taper height guide' : 'Taper by hair type'}</p>
           <h1 className="mt-2 font-display text-4xl font-semibold leading-tight sm:text-5xl">{page.seo.h1}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{page.lead}</p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -32,7 +32,7 @@ export function StylePageTemplate({ page }: { page: StylePage }) {
             </Link>
           </div>
         </div>
-        <figure className="rounded-2xl border border-border bg-surface p-4">
+        <figure className="rounded-xl border border-border bg-surface p-4">
           <TaperVisual
             variant={page.illustration}
             photo={photo}
@@ -49,7 +49,7 @@ export function StylePageTemplate({ page }: { page: StylePage }) {
         <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {page.quickFacts.map((f) => (
             <div key={f.label} className="rounded-xl border border-border bg-surface p-4">
-              <dt className="text-xs font-semibold uppercase tracking-wider text-muted">{f.label}</dt>
+              <dt className="text-xs font-medium text-muted">{f.label}</dt>
               <dd className="mt-1 font-semibold">{f.value}</dd>
             </div>
           ))}

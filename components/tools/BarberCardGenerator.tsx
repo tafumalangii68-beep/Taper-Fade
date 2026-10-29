@@ -195,7 +195,7 @@ export function BarberCardGenerator() {
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_minmax(0,440px)]">
       {/* ---------- Form ---------- */}
-      <form className="space-y-5 rounded-2xl border border-border bg-surface p-5 sm:p-7" onSubmit={(e) => e.preventDefault()}>
+      <form className="space-y-5 rounded-xl border border-border bg-surface p-5 sm:p-7" onSubmit={(e) => e.preventDefault()}>
         <Field label="Taper type" htmlFor="bc-taper">
           <select
             id="bc-taper"
@@ -277,20 +277,20 @@ export function BarberCardGenerator() {
 
       {/* ---------- Card preview ---------- */}
       <div className="lg:sticky lg:top-24 lg:self-start">
-        <div id="barber-card" ref={cardRef} style={CARD_VARS} className="overflow-hidden rounded-2xl bg-[#1b1a19] text-[#f2eee8] shadow-xl">
-          <div className="flex items-center justify-between bg-[#e8a160] px-5 py-3 text-[#1a1209]">
-            <span className="font-display text-lg font-semibold uppercase tracking-wider">Barber Card</span>
-            <span className="text-xs font-semibold">{SITE_NAME}</span>
+        <div id="barber-card" ref={cardRef} style={CARD_VARS} className="overflow-hidden rounded-xl bg-[#141414] text-[#ededed]">
+          <div className="flex items-center justify-between border-b border-[#2a2a2a] px-5 py-3 text-xs">
+            <span className="font-semibold tracking-wide">Barber card</span>
+            <span className="text-[#a8a29e]">{SITE_NAME}</span>
           </div>
           <div className="p-5">
             <div className="flex items-center gap-4">
-              <TaperVisual variant={illustration} photo={cardPhoto(illustration)} px={224} uid="-card" className="h-28 w-28 shrink-0 rounded-xl bg-[#2a2928]" />
+              <TaperVisual variant={illustration} photo={cardPhoto(illustration)} px={224} uid="-card" className="h-28 w-28 shrink-0 rounded-lg bg-[#212121]" />
               <div>
-                <p className="text-xs uppercase tracking-wider text-[#b5aea4]">The cut</p>
-                <p className="font-display text-2xl font-semibold leading-tight">{taper.name}</p>
+                <p className="text-xs text-[#a8a29e]">The cut</p>
+                <p className="mt-0.5 text-2xl font-semibold leading-tight tracking-tight">{taper.name}</p>
               </div>
             </div>
-            <dl className="mt-5 divide-y divide-[#3a3836] text-sm">
+            <dl className="mt-5 divide-y divide-[#2a2a2a] text-sm">
               <Row k="Taper starts" v={HEIGHTS.find((h) => h.value === s.height)!.label} />
               <Row k="Shortest guard" v={guardText(s.guard)} />
               <Row k="Top length" v={s.top} />
@@ -316,7 +316,7 @@ export function BarberCardGenerator() {
             Print
           </button>
         </div>
-        <p role="status" aria-live="polite" className="mt-3 min-h-[1.5rem] text-sm text-accent">
+        <p role="status" aria-live="polite" className="mt-3 min-h-[1.5rem] text-sm text-muted">
           {status}
         </p>
       </div>
@@ -347,7 +347,7 @@ function Toggle({ label, checked, onChange }: { label: string; checked: boolean;
 function Row({ k, v }: { k: string; v: string }) {
   return (
     <div className="flex justify-between gap-4 py-2">
-      <dt className="text-[#b5aea4]">{k}</dt>
+      <dt className="text-[#a8a29e]">{k}</dt>
       <dd className="text-right font-semibold">{v}</dd>
     </div>
   );

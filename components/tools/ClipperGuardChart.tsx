@@ -32,17 +32,17 @@ export function ClipperGuardChart() {
       </div>
 
       {/* Detail panel */}
-      <div aria-live="polite" className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
+      <div aria-live="polite" className="rounded-xl border border-border bg-surface p-5 sm:p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <p className="font-display text-3xl font-semibold">{g.label}</p>
-          <p className="text-lg font-semibold text-accent">{fmt(g.mm, g.inches)}</p>
+          <p className="text-lg font-medium text-muted">{fmt(g.mm, g.inches)}</p>
         </div>
         <p className="mt-3">{g.looks}</p>
         <p className="mt-1 text-sm text-muted">Common use: {g.use}</p>
         <GuardVisual mm={g.mm} />
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-border">
+      <div className="overflow-x-auto rounded-xl border border-border">
         <table className="w-full min-w-[640px] border-collapse text-left text-sm">
           <caption className="sr-only">Clipper guard numbers with lengths in millimeters and inches</caption>
           <thead className="bg-surface-2">

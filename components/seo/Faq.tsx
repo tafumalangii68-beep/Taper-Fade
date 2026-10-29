@@ -13,7 +13,7 @@ export function Faq({ faqs, heading = 'Frequently asked questions', id = 'faq' }
           <details key={f.q} className="group">
             <summary className="flex min-h-[52px] cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-semibold [&::-webkit-details-marker]:hidden">
               <h3 className="m-0 text-base">{f.q}</h3>
-              <span aria-hidden="true" className="text-xl text-accent transition-transform group-open:rotate-45">
+              <span aria-hidden="true" className="text-xl font-light text-muted transition-transform group-open:rotate-45">
                 +
               </span>
             </summary>

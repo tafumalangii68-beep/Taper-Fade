@@ -42,10 +42,10 @@ export default function HomePage() {
       <JsonLd data={[websiteJsonLd(), organizationJsonLd()]} />
 
       {/* ---------- Hero + Finder ---------- */}
-      <section className="border-b border-border bg-gradient-to-b from-surface-2 to-bg">
+      <section className="border-b border-border">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:py-14 lg:grid-cols-[1fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">Free tool + complete guide</p>
+            <p className="text-sm font-medium text-muted">Free tool + complete guide</p>
             <h1 className="mt-2 font-display text-5xl font-semibold leading-none sm:text-6xl">Taper Fade</h1>
             <p className="mt-5 text-lg leading-relaxed text-muted">
               A taper fade is the cleanest way to sharpen any haircut: short, gradual edges at the sideburns and neckline that blend into longer hair on top. Answer six quick questions to find the
@@ -54,7 +54,7 @@ export default function HomePage() {
             <ul className="mt-6 grid gap-2 text-sm sm:grid-cols-2">
               {['Free, no sign-up', 'Every taper type explained', 'Guard sizes in mm and inches', 'Printable barber card'].map((x) => (
                 <li key={x} className="flex items-center gap-2">
-                  <span aria-hidden="true" className="text-accent">
+                  <span aria-hidden="true" className="text-muted">
                     ✓
                   </span>
                   {x}
@@ -165,10 +165,10 @@ export default function HomePage() {
           </p>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {TAPER_TYPES.map((t) => (
-              <li key={t.id} className="flex flex-col rounded-2xl border border-border bg-surface p-5">
+              <li key={t.id} className="flex flex-col rounded-xl border border-border bg-surface p-5">
                 <TaperVisual variant={t.illustration} photo={t.photo} px={144} uid="-types" className="mx-auto h-36 w-36" />
                 <h3 className="mt-3 text-xl font-bold">{t.name}</h3>
-                <p className="mt-1 text-sm font-semibold text-accent">Starts: {t.startsAt}</p>
+                <p className="mt-1 text-sm font-medium">Starts: {t.startsAt}</p>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{t.summary}</p>
                 <p className="mt-3 text-xs text-muted">
                   <span className="font-semibold text-fg">Upkeep:</span> {t.upkeep} · <span className="font-semibold text-fg">Boldness:</span>{' '}

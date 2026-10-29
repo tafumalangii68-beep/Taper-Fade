@@ -47,8 +47,8 @@ export function TaperFinder() {
   if (result) {
     const { taper, runnerUp, reasons } = result;
     return (
-      <div className="rounded-2xl border border-border bg-surface p-5 shadow-sm sm:p-7" aria-live="polite">
-        <p className="text-sm font-semibold uppercase tracking-wider text-accent">Your best match</p>
+      <div className="rounded-xl border border-border bg-surface p-5 sm:p-7" aria-live="polite">
+        <p className="text-sm font-medium text-muted">Your best match</p>
         <h3 ref={resultHeading} tabIndex={-1} className="mt-1 font-display text-3xl font-semibold outline-none">
           {taper.name}
         </h3>
@@ -77,7 +77,7 @@ export function TaperFinder() {
         <ul className="mt-2 space-y-2">
           {reasons.map((r) => (
             <li key={r} className="flex gap-2">
-              <span aria-hidden="true" className="text-accent">
+              <span aria-hidden="true" className="text-muted">
                 ✓
               </span>
               <span>{r}</span>
@@ -105,7 +105,7 @@ export function TaperFinder() {
 
   return (
     <form
-      className="rounded-2xl border border-border bg-surface p-5 shadow-sm sm:p-7"
+      className="rounded-xl border border-border bg-surface p-5 sm:p-7"
       onSubmit={(e) => {
         e.preventDefault();
         next();

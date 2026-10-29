@@ -19,7 +19,7 @@ export function ContactForm({ email }: { email: string }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 rounded-2xl border border-border bg-surface p-5 sm:p-6">
+    <form onSubmit={onSubmit} className="space-y-4 rounded-xl border border-border bg-surface p-5 sm:p-6">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="c-name" className="mb-1.5 block font-semibold">

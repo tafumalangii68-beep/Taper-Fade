@@ -55,14 +55,14 @@ export default function TaperVsFadePage() {
       </p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        <figure className="rounded-2xl border border-border bg-surface p-5 text-center">
+        <figure className="rounded-xl border border-border bg-surface p-5 text-center">
           <TaperVisual variant="low" photo={getTaper('low')?.photo} px={192} uid="-vs" className="mx-auto h-48 w-48" />
           <figcaption className="mt-2">
             <span className="block font-bold">Taper</span>
             <span className="text-sm text-muted">Short only at the sideburns and neckline</span>
           </figcaption>
         </figure>
-        <figure className="rounded-2xl border border-border bg-surface p-5 text-center">
+        <figure className="rounded-xl border border-border bg-surface p-5 text-center">
           <TaperVisual variant="skin" photo={FADE_PHOTO} px={192} uid="-vs" className="mx-auto h-48 w-48" />
           <figcaption className="mt-2">
             <span className="block font-bold">Fade</span>
@@ -71,7 +71,7 @@ export default function TaperVsFadePage() {
         </figure>
       </div>
 
-      <div className="mt-10 overflow-x-auto rounded-2xl border border-border">
+      <div className="mt-10 overflow-x-auto rounded-xl border border-border">
         <table className="w-full min-w-[560px] border-collapse text-left text-sm">
           <caption className="sr-only">Taper vs fade comparison table</caption>
           <thead className="bg-surface-2">
