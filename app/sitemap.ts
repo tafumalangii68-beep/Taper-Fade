@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { CONTENT_UPDATED, LEGAL_NAV, absoluteUrl } from '@/lib/site';
+import { COMPANY_NAV, CONTENT_UPDATED, LEGAL_NAV, absoluteUrl } from '@/lib/site';
 import { STYLE_PAGES } from '@/lib/styles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,6 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/taper-vs-fade', 0.8),
     entry('/barber-card', 0.8),
     entry('/clipper-guard-chart', 0.8),
-    ...LEGAL_NAV.map((l) => entry(l.href, 0.3)),
+    ...[...COMPANY_NAV, ...LEGAL_NAV].map((l) => entry(l.href, 0.3)),
   ];
 }

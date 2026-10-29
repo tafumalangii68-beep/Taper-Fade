@@ -27,7 +27,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label="Dark mode"
       aria-pressed={dark ?? undefined}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-surface text-fg hover:border-accent"
+      className="inline-flex h-10 w-10 items-center justify-center rounded-md text-muted transition-colors hover:bg-surface-2 hover:text-fg"
     >
       {/* Icons swap via the .dark class so there is no flash before hydration. */}
       <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 dark:hidden" fill="none" stroke="currentColor" strokeWidth="2">

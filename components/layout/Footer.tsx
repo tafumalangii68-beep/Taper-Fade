@@ -1,32 +1,49 @@
 import Link from 'next/link';
-import { LEGAL_NAV, SITE_NAME } from '@/lib/site';
+import { COMPANY_NAV, LEGAL_NAV, SITE_NAME } from '@/lib/site';
 import { STYLE_PAGES } from '@/lib/styles';
+import { Logo } from './Logo';
+
+const STYLES = [...STYLE_PAGES.map((p) => ({ href: `/${p.slug}`, label: p.name })), { href: '/taper-vs-fade', label: 'Taper vs Fade' }];
 
 const TOOLS = [
   { href: '/#taper-fade-finder', label: 'Taper Fade Finder' },
   { href: '/barber-card', label: 'Barber Card Generator' },
   { href: '/clipper-guard-chart', label: 'Clipper Guard Chart' },
-  { href: '/taper-vs-fade', label: 'Taper vs Fade' },
 ];
 
 export function Footer() {
   return (
-    <footer className="mt-20 border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <p className="font-display text-xl font-semibold">{SITE_NAME}</p>
-          <p className="mt-3 text-sm leading-relaxed text-muted">
-            Free, independent guides and tools to help you find and ask for the perfect taper fade. Measurements are shown in both mm and inches.
+    <footer className="mt-24 border-t border-border">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-8 gap-y-10 px-4 py-14 sm:grid-cols-3 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div className="col-span-2 max-w-xs sm:col-span-3 lg:col-span-1">
+          <Logo />
+          <p className="mt-4 text-sm leading-relaxed text-muted">
+            Independent guides and free tools to help you choose a taper fade and ask for it with confidence.
           </p>
+          <p className="mt-4 text-xs text-muted">All measurements in mm and inches.</p>
         </div>
-        <FooterCol title="Taper styles" links={STYLE_PAGES.map((p) => ({ href: `/${p.slug}`, label: p.name }))} />
-        <FooterCol title="Free tools" links={TOOLS} />
-        <FooterCol title="Site" links={[...LEGAL_NAV]} />
+        <FooterCol title="Styles" links={STYLES} />
+        <FooterCol title="Tools" links={TOOLS} />
+        <FooterCol title="Company" links={[...COMPANY_NAV]} />
       </div>
+
       <div className="border-t border-border">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-sm text-muted">
-          © {new Date().getFullYear()} {SITE_NAME}. For general information only; not professional advice.
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {SITE_NAME}. General information only, not professional advice.
+          </p>
+          <nav aria-label="Legal">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {LEGAL_NAV.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="transition-colors hover:text-fg">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
     </footer>
   );
@@ -35,11 +52,11 @@ export function Footer() {
 function FooterCol({ title, links }: { title: string; links: { href: string; label: string }[] }) {
   return (
     <nav aria-label={title}>
-      <p className="text-sm font-semibold text-fg">{title}</p>
-      <ul className="mt-3 space-y-2">
+      <p className="text-sm font-medium">{title}</p>
+      <ul className="mt-4 space-y-2.5">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="text-sm hover:text-accent hover:underline">
+            <Link href={l.href} className="text-sm text-muted transition-colors hover:text-fg">
               {l.label}
             </Link>
           </li>

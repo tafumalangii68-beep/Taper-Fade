@@ -21,9 +21,12 @@ export const MAIN_NAV = [
   { href: '/clipper-guard-chart', label: 'Guard Chart' },
 ] as const;
 
-export const LEGAL_NAV = [
+export const COMPANY_NAV = [
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
+] as const;
+
+export const LEGAL_NAV = [
   { href: '/privacy-policy', label: 'Privacy Policy' },
   { href: '/disclaimer', label: 'Disclaimer' },
   { href: '/terms', label: 'Terms of Use' },
