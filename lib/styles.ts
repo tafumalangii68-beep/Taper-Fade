@@ -808,6 +808,13 @@ export const STYLE_PAGES: StylePage[] = [
     taperId: 'low',
     illustration: 'low',
     kind: 'hair-type',
+    heroPhoto: {
+      src: '/photos/taper-fade-straight-hair-side.webp',
+      width: 1200,
+      height: 1097,
+      alt: 'Side profile of a taper fade on straight dark hair, blended short around the ear and neckline with a textured top',
+      caption: 'Taper fade on straight hair, side view',
+    },
     seo: {
       title: 'Taper Fade for Straight Hair: Styles, Guards & Tips',
       description:
