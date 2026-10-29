@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { HeadProfile } from '@/components/illustrations/HeadProfile';
-import type { StylePage } from '@/lib/styles';
+import { TaperVisual } from '@/components/illustrations/TaperVisual';
+import { getPagePhoto, type StylePage } from '@/lib/styles';
 
 export function RelatedTapers({ pages, heading = 'Related tapers' }: { pages: StylePage[]; heading?: string }) {
   return (
@@ -12,7 +12,7 @@ export function RelatedTapers({ pages, heading = 'Related tapers' }: { pages: St
         {pages.map((p) => (
           <li key={p.slug}>
             <Link href={`/${p.slug}`} className="group flex h-full flex-col rounded-xl border border-border bg-surface p-4 transition hover:border-accent">
-              <HeadProfile variant={p.illustration} uid={`-rel-${p.slug}`} className="mx-auto h-24 w-24" />
+              <TaperVisual variant={p.illustration} photo={getPagePhoto(p)} px={96} uid={`-rel-${p.slug}`} className="mx-auto h-24 w-24" />
               <span className="mt-3 font-semibold group-hover:text-accent">{p.name}</span>
               <span className="mt-1 text-sm text-muted">{p.teaser}</span>
             </Link>

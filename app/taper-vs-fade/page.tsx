@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { AdSlot } from '@/components/AdSlot';
-import { HeadProfile } from '@/components/illustrations/HeadProfile';
+import { TaperVisual } from '@/components/illustrations/TaperVisual';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { Faq } from '@/components/seo/Faq';
 import { RelatedTapers } from '@/components/style/RelatedTapers';
 import { buildMetadata, type Faq as FaqItem } from '@/lib/seo';
-import { getRelated } from '@/lib/styles';
+import { getRelated, getTaper } from '@/lib/styles';
 
 const PATH = '/taper-vs-fade';
 
@@ -47,14 +47,15 @@ export default function TaperVsFadePage() {
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <figure className="rounded-2xl border border-border bg-surface p-5 text-center">
-          <HeadProfile variant="low" uid="-vs" className="mx-auto h-48 w-48" />
+          <TaperVisual variant="low" photo={getTaper('low')?.photo} px={192} uid="-vs" className="mx-auto h-48 w-48" />
           <figcaption className="mt-2">
             <span className="block font-bold">Taper</span>
             <span className="text-sm text-muted">Short only at the sideburns and neckline</span>
           </figcaption>
         </figure>
         <figure className="rounded-2xl border border-border bg-surface p-5 text-center">
-          <HeadProfile variant="skin" uid="-vs" className="mx-auto h-48 w-48" />
+          {/* Add a fade photo as a TaperType `photo` (or pass `photo` here) to replace this drawing. */}
+          <TaperVisual variant="skin" px={192} uid="-vs" className="mx-auto h-48 w-48" />
           <figcaption className="mt-2">
             <span className="block font-bold">Fade</span>
             <span className="text-sm text-muted">A larger area blended down to skin</span>

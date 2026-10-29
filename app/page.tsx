@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { AdSlot } from '@/components/AdSlot';
-import { HeadProfile } from '@/components/illustrations/HeadProfile';
+import { TaperVisual } from '@/components/illustrations/TaperVisual';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Faq } from '@/components/seo/Faq';
 import { RelatedTapers } from '@/components/style/RelatedTapers';
@@ -166,7 +166,7 @@ export default function HomePage() {
           <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {TAPER_TYPES.map((t) => (
               <li key={t.id} className="flex flex-col rounded-2xl border border-border bg-surface p-5">
-                <HeadProfile variant={t.illustration} uid="-types" className="mx-auto h-36 w-36" />
+                <TaperVisual variant={t.illustration} photo={t.photo} px={144} uid="-types" className="mx-auto h-36 w-36" />
                 <h3 className="mt-3 text-xl font-bold">{t.name}</h3>
                 <p className="mt-1 text-sm font-semibold text-accent">Starts: {t.startsAt}</p>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{t.summary}</p>

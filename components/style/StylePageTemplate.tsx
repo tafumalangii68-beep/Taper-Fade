@@ -1,15 +1,17 @@
 import Link from 'next/link';
 import { AdSlot } from '@/components/AdSlot';
 import { PhotoPlaceholder } from '@/components/PhotoPlaceholder';
-import { HeadProfile, ILLUSTRATION_LABELS } from '@/components/illustrations/HeadProfile';
+import { ILLUSTRATION_LABELS } from '@/components/illustrations/HeadProfile';
+import { TaperVisual } from '@/components/illustrations/TaperVisual';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { Faq } from '@/components/seo/Faq';
-import { getRelated, type StylePage } from '@/lib/styles';
+import { getPagePhoto, getRelated, type StylePage } from '@/lib/styles';
 import { RelatedTapers } from './RelatedTapers';
 
 /** Shared layout for every page in STYLE_PAGES. */
 export function StylePageTemplate({ page }: { page: StylePage }) {
   const related = getRelated(page.related, page.slug);
+  const photo = getPagePhoto(page);
 
   return (
     <article className="mx-auto max-w-6xl px-4 py-8">
@@ -31,7 +33,13 @@ export function StylePageTemplate({ page }: { page: StylePage }) {
           </div>
         </div>
         <figure className="rounded-2xl border border-border bg-surface p-4">
-          <HeadProfile variant={page.illustration} className="mx-auto h-56 w-56" />
+          <TaperVisual
+            variant={page.illustration}
+            photo={photo}
+            px={248}
+            priority
+            className={photo ? 'h-auto w-full' : 'mx-auto h-56 w-56'}
+          />
           <figcaption className="mt-2 text-center text-sm text-muted">{ILLUSTRATION_LABELS[page.illustration]}</figcaption>
         </figure>
       </header>

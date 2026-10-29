@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { QUESTIONS, scoreAnswers, type Answers, type FinderResult } from '@/lib/finder';
-import { HeadProfile } from '@/components/illustrations/HeadProfile';
+import { TaperVisual } from '@/components/illustrations/TaperVisual';
 
 export function TaperFinder() {
   const [step, setStep] = useState(0);
@@ -53,7 +53,7 @@ export function TaperFinder() {
           {taper.name}
         </h3>
         <div className="mt-5 grid gap-6 sm:grid-cols-[160px_1fr]">
-          <HeadProfile variant={taper.illustration} uid="-finder" className="mx-auto h-40 w-40 rounded-xl bg-surface-2" />
+          <TaperVisual variant={taper.illustration} photo={taper.photo} px={160} uid="-finder" className="mx-auto h-40 w-40 rounded-xl bg-surface-2" />
           <div>
             <p className="leading-relaxed">{taper.summary}</p>
             <dl className="mt-4 grid gap-2 text-sm">
