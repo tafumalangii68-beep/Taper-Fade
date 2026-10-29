@@ -127,6 +127,13 @@ export const TAPER_TYPES: TaperType[] = [
     boldness: 5,
     href: '/high-taper-fade',
     illustration: 'high',
+    photo: {
+      src: '/photos/high-taper-fade-side.webp',
+      width: 1200,
+      height: 1097,
+      alt: 'Side profile of a high taper fade on wavy dark hair, blended down to skin around the ear with a textured top',
+      caption: 'High taper fade, side view',
+    },
   },
   {
     id: 'drop',
