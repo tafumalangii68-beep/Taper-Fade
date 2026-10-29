@@ -184,6 +184,13 @@ export const TAPER_TYPES: TaperType[] = [
     boldness: 1,
     href: '/#taper-fade-types',
     illustration: 'temple',
+    photo: {
+      src: '/photos/temple-taper-side.webp',
+      width: 1200,
+      height: 1097,
+      alt: 'Side profile of a temple taper on curly dark hair, with tapered temples and nape and a sharp line-up at the hairline',
+      caption: 'Temple (Brooklyn) taper, side view',
+    },
   },
   {
     id: 'skin',
